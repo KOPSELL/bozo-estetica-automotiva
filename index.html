@@ -189,7 +189,9 @@ document.getElementById('bookingForm').addEventListener('submit', async function
     });
     const result = await response.json().catch(()=>({}));
     if (!response.ok) throw new Error(result.error || 'Não foi possível confirmar o agendamento.');
-    formMessage.textContent='Agendamento confirmado! Seu horário ficou reservado para '+payload.data.split('-').reverse().join('/')+' às '+payload.horario+'. Obrigado, '+payload.nome+'!';
+    formMessage.textContent = result.notification_sent
+      ? 'Agendamento confirmado! Seu horário ficou reservado para '+payload.data.split('-').reverse().join('/')+' às '+payload.horario+'. Você receberá a confirmação dos detalhes no local informado. Obrigado, '+payload.nome+'!'
+      : 'Agendamento registrado para '+payload.data.split('-').reverse().join('/')+' às '+payload.horario+', mas o aviso push do administrador ainda não está configurado. Obrigado, '+payload.nome+'!';
     this.reset();
     document.getElementById('service').value='Lavagem detalhada';
     document.querySelectorAll('.servicechoice').forEach((item,index)=>item.classList.toggle('selected',index===0));
