@@ -12,6 +12,13 @@
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 </head>
 <body>
+<div id="bozoPushBanner" style="display:none;position:fixed;z-index:20;bottom:18px;left:50%;transform:translateX(-50%);width:min(520px,calc(100% - 28px));background:#111214;border:1px solid #d6b477;padding:16px 18px;box-shadow:0 12px 40px #0009">
+  <div style="display:flex;gap:14px;align-items:center;justify-content:space-between">
+    <div><strong style="display:block;color:#f4f0e8;font-size:13px;margin-bottom:5px">Receba avisos da Bozo 🔔</strong><span style="display:block;color:#a7a7a4;font-size:11px;line-height:1.5">Ative as notificações neste dispositivo para receber atualizações.</span></div>
+    <button id="enableNotificationsTop" type="button" class="btn" style="padding:11px 13px;white-space:nowrap">Ativar</button>
+    <button id="dismissNotificationsTop" type="button" aria-label="Fechar" style="background:none;border:0;color:#aaa;font-size:20px;cursor:pointer">×</button>
+  </div>
+</div>
 <div class="topline"></div>
 <header><div class="wrap nav"><a class="brand" href="#inicio" aria-label="Bozo Estética Automotiva início"><div class="brandmark">B.</div><div class="brandname">BOZO<small>ESTÉTICA AUTOMOTIVA</small></div></a><nav class="navlinks"><a href="#servicos">Serviços</a><a href="#sobre">Nosso cuidado</a><a href="#horarios">Horários</a><a class="btn" href="#agendar">Agendar agora ↗</a></nav></div></header>
 <main>
@@ -41,8 +48,12 @@ window.OneSignalDeferred.push(async function(OneSignal) {
   await OneSignal.init({
     appId: "60a6b2ba-47ca-4b23-9467-14a339493a08"
   });
-  const notifyButton = document.getElementById('enableNotifications');
-  if (notifyButton) {
+  const notifyButtons = [document.getElementById('enableNotifications'), document.getElementById('enableNotificationsTop')].filter(Boolean);
+  const pushBanner = document.getElementById('bozoPushBanner');
+  const dismissBanner = document.getElementById('dismissNotificationsTop');
+  if (dismissBanner) dismissBanner.addEventListener('click', () => { if (pushBanner) pushBanner.style.display = 'none'; });
+  if (pushBanner && !OneSignal.Notifications.permission) pushBanner.style.display = 'block';
+  notifyButtons.forEach((notifyButton) => {
     notifyButton.addEventListener('click', async function() {
       try {
         if (!OneSignal.Notifications.isPushSupported()) {
@@ -54,12 +65,14 @@ window.OneSignalDeferred.push(async function(OneSignal) {
           OneSignal.Notifications.permission
             ? 'Notificações ativadas! Você poderá receber avisos da Bozo neste dispositivo.'
             : 'As notificações não foram autorizadas. Você pode ativá-las nas configurações do navegador.';
+        if (OneSignal.Notifications.permission && pushBanner) pushBanner.style.display = 'none';
       } catch (error) {
         console.error('Erro ao ativar notificações OneSignal:', error);
-        document.getElementById('formMessage').textContent = 'Não foi possível ativar as notificações agora. Tente novamente.';
+        const message = document.getElementById('formMessage');
+        if (message) message.textContent = 'Não foi possível ativar as notificações agora. Tente novamente.';
       }
     });
-  }
+  });
 });
 
 document.querySelectorAll('.servicechoice').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.servicechoice').forEach(item=>item.classList.remove('selected'));button.classList.add('selected');document.getElementById('service').value=button.dataset.service;}));
