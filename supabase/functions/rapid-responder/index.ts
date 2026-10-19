@@ -156,8 +156,12 @@ Deno.serve(async (req: Request) => {
           body: JSON.stringify({
             app_id: oneSignalAppId,
             include_subscription_ids: [adminSubscriptionId],
-            headings: { pt: "Novo agendamento — Bozo" },
+            headings: {
+              en: "New appointment — Bozo",
+              pt: "Novo agendamento — Bozo",
+            },
             contents: {
+              en: nome + " agendou " + service.nome + " para " + data.split("-").reverse().join("/") + " às " + horario + ". Telefone: " + whatsapp + (veiculo ? ". Veículo: " + veiculo : ""),
               pt: nome + " agendou " + service.nome + " para " + data.split("-").reverse().join("/") + " às " + horario + ". Telefone: " + whatsapp + (veiculo ? ". Veículo: " + veiculo : ""),
             },
             url: "https://bozo-estetica-automotiva.vercel.app/",
