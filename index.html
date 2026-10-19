@@ -182,7 +182,7 @@ document.getElementById('bookingForm').addEventListener('submit', async function
   confirmBooking.textContent='Confirmando agendamento...';
   formMessage.textContent='Estamos confirmando seu horário. Aguarde um instante.';
   try {
-    const response = await fetch(SUPABASE_URL+'/functions/v1/bozo-agendamento', {
+    const response = await fetch(SUPABASE_URL+'/functions/v1/rapid-responder', {
       method:'POST',
       headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY},
       body:JSON.stringify(payload)
