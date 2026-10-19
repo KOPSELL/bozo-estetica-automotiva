@@ -17,6 +17,14 @@ WHERE NOT EXISTS (
   SELECT 1 FROM public.bozo_servicos s WHERE lower(s.nome) = lower(v.nome)
 );
 
+-- Garanta o intervalo de 1 hora para os serviços iniciais sem alterar preços já cadastrados.
+UPDATE public.bozo_servicos
+SET duracao_minutos = 60, ativo = true
+WHERE lower(nome) IN (
+  'lavagem detalhada', 'polimento técnico', 'vitrificação',
+  'higienização interna', 'revitalização de pintura', 'pacote personalizado'
+);
+
 -- Um horário de início só pode ser reservado uma vez. Cancelados liberam o horário.
 CREATE UNIQUE INDEX IF NOT EXISTS bozo_agendamentos_horario_ativo_uidx
 ON public.bozo_agendamentos (data_hora)
