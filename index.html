@@ -33,9 +33,30 @@
 <article class="service"><div class="serviceicon">＋</div><h3>Pacote personalizado</h3><p>Um conjunto de cuidados definido conforme o estado, o tipo e as necessidades do seu carro.</p><div class="servicefoot"><span>Sob consulta</span><strong>Consultar</strong></div></article>
 </div></section>
 <section class="feature" id="sobre"><div class="wrap section featuregrid"><div class="featurephoto"><img src="https://images.unsplash.com/photo-1601362840469-51e4d8d58785?auto=format&fit=crop&w=1000&q=85" alt="Detalhe de carro premium com pintura reluzente" loading="lazy"></div><div class="featurecopy"><div class="eyebrow">O detalhe faz diferença</div><h2>Não é só lavar.<br>É <span class="gold">valorizar.</span></h2><p>Cuidar do carro é cuidar de cada superfície, cada acabamento e cada reflexo. Nosso objetivo é oferecer uma experiência atenciosa, com serviços pensados para valorizar seu veículo.</p><ul class="checklist"><li>Atenção aos detalhes</li><li>Serviços escolhidos para cada necessidade</li><li>Agendamento para organizar seu atendimento</li><li>Mais brilho e acabamento pro seu carro</li></ul><a class="btn ghost" href="#agendar">Quero agendar ↗</a></div></div></section>
-<section class="section wrap" id="agendar"><div class="bookinggrid"><div class="bookingintro"><div class="eyebrow">Agendamento</div><h2>Seu próximo cuidado começa <span class="gold">aqui.</span></h2><p>Sem complicação: escolha o serviço, diga seu nome e pronto. Depois, combinamos o melhor horário para você.</p><div class="limited"><span style="font-size:22px;color:var(--gold)">◷</span><div><strong>AGENDA LIMITADA</strong><span>Reserve com antecedência para solicitar o horário que funciona melhor pra você.</span></div></div></div><form class="formbox" id="bookingForm"><h3>Vamos cuidar do seu carro?</h3><p>Escolha um serviço e deixe seu nome. É rapidinho.</p><div class="field full"><label>1. Escolha o serviço</label><div class="servicechoices" id="serviceChoices"><button class="servicechoice selected" type="button" data-service="Lavagem detalhada"><span>✧</span> Lavagem detalhada</button><button class="servicechoice" type="button" data-service="Polimento técnico"><span>◈</span> Polimento técnico</button><button class="servicechoice" type="button" data-service="Vitrificação"><span>◇</span> Vitrificação</button><button class="servicechoice" type="button" data-service="Higienização interna"><span>⌁</span> Higienização interna</button><button class="servicechoice" type="button" data-service="Revitalização de pintura"><span>✳</span> Revitalização de pintura</button><button class="servicechoice" type="button" data-service="Pacote personalizado"><span>＋</span> Pacote personalizado</button></div><input type="hidden" id="service" value="Lavagem detalhada" required></div><div class="formgrid compactform"><div class="field full"><label for="name">2. Seu nome</label><input id="name" autocomplete="name" placeholder="Como podemos chamar você?" required></div><div class="field full"><label for="car">Seu veículo <span class="optional">(opcional)</span></label><input id="car" placeholder="Ex.: Onix 2022, Corolla, SUV..."></div><div class="field full"><label for="notes">Observações <span class="optional">(opcional)</span></label><textarea id="notes" rows="2" placeholder="O que você gostaria de fazer no carro?"></textarea></div></div><button class="btn" type="submit">Continuar agendamento ↗</button>
-<button class="btn ghost" id="enableNotifications" type="button" style="width:100%;margin-top:10px">Ativar notificações da Bozo 🔔</button>
-<p class="fineprint">As notificações são opcionais e só serão ativadas com sua autorização no navegador.</p><p class="fineprint" id="formMessage">Sem formulários longos: depois de continuar, você poderá copiar sua solicitação para enviar e combinar o melhor horário.</p></form></div></section>
+<section class="section wrap" id="agendar"><div class="bookinggrid"><div class="bookingintro"><div class="eyebrow">Agendamento</div><h2>Seu próximo cuidado começa <span class="gold">aqui.</span></h2><p>Sem complicação: escolha o serviço, diga seu nome e pronto. Depois, combinamos o melhor horário para você.</p><div class="limited"><span style="font-size:22px;color:var(--gold)">◷</span><div><strong>AGENDA LIMITADA</strong><span>Reserve com antecedência para solicitar o horário que funciona melhor pra você.</span></div></div></div><form class="formbox" id="bookingForm">
+<h3>Agende seu horário</h3>
+<p>Escolha o serviço, a data e um horário disponível. A confirmação é feita diretamente pelo site.</p>
+<div class="field full"><label>1. Escolha o serviço</label><div class="servicechoices" id="serviceChoices">
+<button class="servicechoice selected" type="button" data-service="Lavagem detalhada"><span>✧</span> Lavagem detalhada</button>
+<button class="servicechoice" type="button" data-service="Polimento técnico"><span>◈</span> Polimento técnico</button>
+<button class="servicechoice" type="button" data-service="Vitrificação"><span>◇</span> Vitrificação</button>
+<button class="servicechoice" type="button" data-service="Higienização interna"><span>⌁</span> Higienização interna</button>
+<button class="servicechoice" type="button" data-service="Revitalização de pintura"><span>✳</span> Revitalização de pintura</button>
+<button class="servicechoice" type="button" data-service="Pacote personalizado"><span>＋</span> Pacote personalizado</button>
+</div><input type="hidden" id="service" value="Lavagem detalhada" required></div>
+<div class="formgrid compactform">
+<div class="field"><label for="name">2. Seu nome</label><input id="name" autocomplete="name" placeholder="Nome completo" required maxlength="120"></div>
+<div class="field"><label for="phone">Seu WhatsApp/telefone</label><input id="phone" type="tel" autocomplete="tel" placeholder="(55) 99999-9999" required maxlength="30"></div>
+<div class="field full"><label for="car">Veículo <span class="optional">(opcional)</span></label><input id="car" placeholder="Ex.: Onix 2022, Corolla, SUV..." maxlength="160"></div>
+<div class="field"><label for="bookingDate">3. Escolha o dia</label><input id="bookingDate" type="date" required></div>
+<div class="field"><label for="bookingTime">4. Horário disponível</label><select id="bookingTime" required disabled><option value="">Escolha primeiro o dia</option></select></div>
+<div class="field full"><label for="notes">Observações <span class="optional">(opcional)</span></label><textarea id="notes" rows="2" placeholder="Algum detalhe sobre o serviço?" maxlength="1000"></textarea></div>
+</div>
+<button class="btn" id="confirmBooking" type="submit">Confirmar agendamento ↗</button>
+<button class="btn ghost" id="enableNotifications" type="button" style="width:100%;margin-top:10px">Ativar notificações neste computador 🔔</button>
+<p class="fineprint">Cada atendimento reserva 1 hora. Segunda a sexta: 8h às 18h. Sábado: 8h às 12h. Domingo: fechado.</p>
+<p class="fineprint" id="formMessage" role="status" aria-live="polite">O agendamento é feito aqui mesmo, sem precisar enviar mensagem pelo WhatsApp.</p>
+</form></div></section>
 <section class="hours" id="horarios"><div class="wrap section hoursgrid"><div><div class="eyebrow">Planeje sua visita</div><h2>Um horário reservado<br><span class="gold">pra você.</span></h2><p>Estamos preparando nossa agenda de atendimento. Os dias e horários abaixo são uma sugestão inicial e serão ajustados conforme o funcionamento real da estética.</p></div><div class="hourslist"><div class="hourrow"><span>Segunda a sexta</span><span class="pending">A confirmar</span></div><div class="hourrow"><span>Sábado</span><span class="pending">A confirmar</span></div><div class="hourrow"><span>Domingo e feriados</span><span class="pending">Sob consulta</span></div><div class="hourrow"><span>Localização</span><span>Soledade · RS</span></div></div></div></section>
 <section class="cta"><div class="wrap"><div class="eyebrow">Bozo Estética Automotiva</div><h2>Seu carro no brilho<br><span class="gold">que merece.</span></h2><p>Mais brilho. Mais cuidado. Mais presença na estrada.</p><a class="btn" href="#agendar">Garanta seu horário ↗</a></div></section>
 </main>
@@ -43,39 +64,142 @@
 <script>
 document.getElementById('year').textContent=new Date().getFullYear();
 
+const SUPABASE_URL = 'https://gzpvwzspjgmhfmvkbwah.supabase.co';
+const SUPABASE_ANON_KEY = 'sb_publishable_U29dHnqpLfa9WyowmQ0w_g_SqT57dnd';
+const bookingDate = document.getElementById('bookingDate');
+const bookingTime = document.getElementById('bookingTime');
+const formMessage = document.getElementById('formMessage');
+const confirmBooking = document.getElementById('confirmBooking');
+const todayLocal = new Date();
+const localToday = new Date(todayLocal.getTime() - todayLocal.getTimezoneOffset()*60000).toISOString().slice(0,10);
+bookingDate.min = localToday;
+
 window.OneSignalDeferred = window.OneSignalDeferred || [];
 window.OneSignalDeferred.push(async function(OneSignal) {
-  await OneSignal.init({
-    appId: "60a6b2ba-47ca-4b23-9467-14a339493a08"
-  });
+  await OneSignal.init({ appId: "60a6b2ba-47ca-4b23-9467-14a339493a08" });
   const notifyButtons = [document.getElementById('enableNotifications'), document.getElementById('enableNotificationsTop')].filter(Boolean);
   const pushBanner = document.getElementById('bozoPushBanner');
   const dismissBanner = document.getElementById('dismissNotificationsTop');
   if (dismissBanner) dismissBanner.addEventListener('click', () => { if (pushBanner) pushBanner.style.display = 'none'; });
   if (pushBanner && !OneSignal.Notifications.permission) pushBanner.style.display = 'block';
-  notifyButtons.forEach((notifyButton) => {
-    notifyButton.addEventListener('click', async function() {
-      try {
-        if (!OneSignal.Notifications.isPushSupported()) {
-          document.getElementById('formMessage').textContent = 'Este navegador não oferece suporte a notificações push.';
-          return;
-        }
-        await OneSignal.Notifications.requestPermission();
-        document.getElementById('formMessage').textContent =
-          OneSignal.Notifications.permission
-            ? 'Notificações ativadas! Você poderá receber avisos da Bozo neste dispositivo.'
-            : 'As notificações não foram autorizadas. Você pode ativá-las nas configurações do navegador.';
-        if (OneSignal.Notifications.permission && pushBanner) pushBanner.style.display = 'none';
-      } catch (error) {
-        console.error('Erro ao ativar notificações OneSignal:', error);
-        const message = document.getElementById('formMessage');
-        if (message) message.textContent = 'Não foi possível ativar as notificações agora. Tente novamente.';
-      }
-    });
-  });
+  notifyButtons.forEach((button) => button.addEventListener('click', async function() {
+    try {
+      if (!OneSignal.Notifications.isPushSupported()) { formMessage.textContent = 'Este navegador não oferece suporte a notificações push.'; return; }
+      await OneSignal.Notifications.requestPermission();
+      formMessage.textContent = OneSignal.Notifications.permission ? 'Notificações ativadas neste computador.' : 'Permissão não autorizada. Confira as configurações do navegador.';
+      if (OneSignal.Notifications.permission && pushBanner) pushBanner.style.display = 'none';
+    } catch (error) {
+      console.error('Erro ao ativar notificações:', error);
+      formMessage.textContent = 'Não foi possível ativar as notificações agora. Tente novamente.';
+    }
+  }));
 });
 
-document.querySelectorAll('.servicechoice').forEach(button=>button.addEventListener('click',()=>{document.querySelectorAll('.servicechoice').forEach(item=>item.classList.remove('selected'));button.classList.add('selected');document.getElementById('service').value=button.dataset.service;}));
-document.getElementById('bookingForm').addEventListener('submit',function(e){e.preventDefault();const data={servico:document.getElementById('service').value,nome:document.getElementById('name').value.trim(),veiculo:document.getElementById('car').value.trim()||'Não informado',observacoes:document.getElementById('notes').value.trim()||'Nenhuma'};const msg='Olá! Gostaria de agendar um serviço na Bozo Estética Automotiva.\n\nNome: '+data.nome+'\nServiço desejado: '+data.servico+'\nVeículo: '+data.veiculo+'\nObservações: '+data.observacoes+'\n\nPodemos combinar o melhor dia e horário?';const old=document.getElementById('requestPreview');if(old)old.remove();const out=document.createElement('div');out.id='requestPreview';out.style.cssText='margin-top:16px;padding:16px;border:1px solid #d6b47780;background:#090a0b;color:#f4f0e8;font-size:12px;line-height:1.7;white-space:pre-line';out.textContent='Pronto, '+data.nome+'! Sua solicitação está montada. Copie a mensagem para enviar à Bozo Estética Automotiva e combinar o melhor horário.\n\n'+msg;const copy=document.createElement('button');copy.type='button';copy.className='btn';copy.style.marginTop='12px';copy.textContent='Copiar solicitação';copy.onclick=async()=>{try{await navigator.clipboard.writeText(msg);copy.textContent='Solicitação copiada ✓'}catch{copy.textContent='Copie a mensagem manualmente'}};out.appendChild(document.createElement('br'));out.appendChild(copy);this.appendChild(out);out.scrollIntoView({behavior:'smooth',block:'center'});});
+document.querySelectorAll('.servicechoice').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('.servicechoice').forEach(item=>item.classList.remove('selected'));
+  button.classList.add('selected');
+  document.getElementById('service').value=button.dataset.service;
+}));
+
+function makeTimeOptions() {
+  bookingTime.innerHTML = '';
+  const first = document.createElement('option');
+  first.value = '';
+  first.textContent = 'Selecione um horário';
+  bookingTime.appendChild(first);
+  if (!bookingDate.value) { bookingTime.disabled=true; return; }
+  const date = new Date(bookingDate.value + 'T12:00:00');
+  const day = date.getDay();
+  if (day === 0) {
+    bookingTime.disabled=true;
+    first.textContent='Fechado aos domingos';
+    formMessage.textContent='A Bozo não atende aos domingos. Escolha outro dia.';
+    return;
+  }
+  const lastStart = day === 6 ? 11 : 17;
+  const now = new Date();
+  for (let hour=8; hour<=lastStart; hour++) {
+    if (bookingDate.value === localToday && hour <= now.getHours()) continue;
+    const value = String(hour).padStart(2,'0')+':00';
+    const option = document.createElement('option');
+    option.value=value;
+    option.textContent=value;
+    bookingTime.appendChild(option);
+  }
+  bookingTime.disabled=false;
+  if (bookingTime.options.length === 1) {
+    first.textContent='Sem horários restantes neste dia';
+    bookingTime.disabled=true;
+  } else {
+    formMessage.textContent='Selecione um horário livre. A disponibilidade será confirmada ao finalizar.';
+  }
+}
+bookingDate.addEventListener('change', makeTimeOptions);
+
+async function loadOccupiedTimes() {
+  if (!bookingDate.value) return;
+  makeTimeOptions();
+  if (bookingTime.disabled) return;
+  try {
+    const start = encodeURIComponent(bookingDate.value+'T00:00:00');
+    const nextDate = new Date(bookingDate.value+'T12:00:00');
+    nextDate.setDate(nextDate.getDate()+1);
+    const endDate = nextDate.getFullYear()+'-'+String(nextDate.getMonth()+1).padStart(2,'0')+'-'+String(nextDate.getDate()).padStart(2,'0');
+    const end = encodeURIComponent(endDate+'T00:00:00');
+    const response = await fetch(SUPABASE_URL+'/rest/v1/bozo_agendamentos?select=data_hora,status&data_hora=gte.'+start+'&data_hora=lt.'+end+'&status=not.in.%28cancelado%2Ccancelada%2Ccanceled%2Ccancelled%29', {
+      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY}
+    });
+    if (!response.ok) throw new Error('Não foi possível consultar a agenda');
+    const rows = await response.json();
+    const occupied = new Set(rows.map(row=>new Date(row.data_hora).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',hour12:false})));
+    [...bookingTime.options].forEach(option=>{
+      if (option.value && occupied.has(option.value)) { option.disabled=true; option.textContent=option.value+' — ocupado'; }
+    });
+  } catch (error) {
+    console.error(error);
+    formMessage.textContent='Não conseguimos carregar os horários agora. Você ainda pode tentar novamente em instantes.';
+  }
+}
+bookingDate.addEventListener('change', loadOccupiedTimes);
+
+document.getElementById('bookingForm').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const payload = {
+    nome:document.getElementById('name').value.trim(),
+    whatsapp:document.getElementById('phone').value.trim(),
+    servico:document.getElementById('service').value,
+    veiculo:document.getElementById('car').value.trim(),
+    observacoes:document.getElementById('notes').value.trim(),
+    data:bookingDate.value,
+    horario:bookingTime.value
+  };
+  if (!payload.data || !payload.horario) { formMessage.textContent='Escolha o dia e o horário para continuar.'; return; }
+  const chosen = new Date(payload.data+'T12:00:00');
+  if (chosen.getDay()===0) { formMessage.textContent='A Bozo não atende aos domingos. Escolha outro dia.'; return; }
+  confirmBooking.disabled=true;
+  confirmBooking.textContent='Confirmando agendamento...';
+  formMessage.textContent='Estamos confirmando seu horário. Aguarde um instante.';
+  try {
+    const response = await fetch(SUPABASE_URL+'/functions/v1/bozo-agendamento', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY},
+      body:JSON.stringify(payload)
+    });
+    const result = await response.json().catch(()=>({}));
+    if (!response.ok) throw new Error(result.error || 'Não foi possível confirmar o agendamento.');
+    formMessage.textContent='Agendamento confirmado! Seu horário ficou reservado para '+payload.data.split('-').reverse().join('/')+' às '+payload.horario+'. Obrigado, '+payload.nome+'!';
+    this.reset();
+    document.getElementById('service').value='Lavagem detalhada';
+    document.querySelectorAll('.servicechoice').forEach((item,index)=>item.classList.toggle('selected',index===0));
+    bookingTime.innerHTML='<option value="">Escolha primeiro o dia</option>';
+    bookingTime.disabled=true;
+    bookingDate.min=localToday;
+  } catch(error) {
+    formMessage.textContent=error.message || 'Erro ao confirmar. Confira os dados e tente novamente.';
+  } finally {
+    confirmBooking.disabled=false;
+    confirmBooking.textContent='Confirmar agendamento ↗';
+  }
+});
 </script>
 </body></html>
