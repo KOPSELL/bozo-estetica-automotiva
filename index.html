@@ -146,12 +146,14 @@ async function loadOccupiedTimes() {
     nextDate.setDate(nextDate.getDate()+1);
     const endDate = nextDate.getFullYear()+'-'+String(nextDate.getMonth()+1).padStart(2,'0')+'-'+String(nextDate.getDate()).padStart(2,'0');
     const end = encodeURIComponent(endDate+'T00:00:00');
-    const response = await fetch(SUPABASE_URL+'/rest/v1/bozo_agendamentos?select=data_hora,status&data_hora=gte.'+start+'&data_hora=lt.'+end+'&status=not.in.%28cancelado%2Ccancelada%2Ccanceled%2Ccancelled%29', {
-      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY}
+    const response = await fetch(SUPABASE_URL+'/rest/v1/rpc/bozo_horarios_ocupados', {
+      method:'POST',
+      headers:{'Content-Type':'application/json','apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY},
+      body:JSON.stringify({p_data:bookingDate.value})
     });
     if (!response.ok) throw new Error('Não foi possível consultar a agenda');
     const rows = await response.json();
-    const occupied = new Set(rows.map(row=>new Date(row.data_hora).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',hour12:false})));
+    const occupied = new Set(rows.map(row=>row.horario));
     [...bookingTime.options].forEach(option=>{
       if (option.value && occupied.has(option.value)) { option.disabled=true; option.textContent=option.value+' — ocupado'; }
     });
