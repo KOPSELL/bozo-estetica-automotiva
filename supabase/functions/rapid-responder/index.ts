@@ -161,7 +161,7 @@ Deno.serve(async (req: Request) => {
               pt: "Novo agendamento — Bozo",
             },
             contents: {
-              en: nome + " agendou " + service.nome + " para " + data.split("-").reverse().join("/") + " às " + horario + ". Telefone: " + whatsapp + (veiculo ? ". Veículo: " + veiculo : ""),
+              en: nome + " booked " + service.nome + " for " + data.split("-").reverse().join("/") + " at " + horario + ". Phone: " + whatsapp + (veiculo ? ". Vehicle: " + veiculo : ""),
               pt: nome + " agendou " + service.nome + " para " + data.split("-").reverse().join("/") + " às " + horario + ". Telefone: " + whatsapp + (veiculo ? ". Veículo: " + veiculo : ""),
             },
             url: "https://bozo-estetica-automotiva.vercel.app/",
